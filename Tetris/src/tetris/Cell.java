@@ -3,14 +3,10 @@ package tetris;
 import java.awt.Color;
 import java.awt.Graphics;
 
-/**
- * 网格类
- * @author Leslie Leung
- */
 public class Cell {
-	public static final int CELL_SIZE = 25;		//一个网格的大小
+	public static final int CELL_SIZE = 25;		//a cell size
 
-	/* 格子的所有颜色  */
+	/* the color of all the cells  */
 	public static final int COLOR_CYAN = 0;
 	public static final int COLOR_BLUE = 1;
 	public static final int COLOR_GREEN = 2;
@@ -19,18 +15,13 @@ public class Cell {
 	public static final int COLOR_RED = 5;
 	public static final int COLOR_PINK = 6;
 
-	private int color;	//格子的颜色
-	private int x;	//横坐标
-	private int y;	//纵坐标
+	private int color;	//color of the cell
+	private int x;	//x-axis
+	private int y;	//y-axis
 
-	/**
-	 * 构造方法
-	 * @param x 横坐标
-	 * @param y 纵坐标
-	 * @param style 格子的样式，通过颜色来指定
-	 */
+
 	public Cell(int x, int y, int style) {
-		/* 根据传进来的样式决定格子的颜色 */
+		/* choose the color with style */
 		switch(style) {
 			case 0: color = COLOR_CYAN; break;
 			case 1: color = COLOR_BLUE; break;
@@ -45,42 +36,26 @@ public class Cell {
 		this.y = y;
 	}
 
-	/**
-	 * 设置该格子的横坐标
-	 * @param newX 新的横坐标
-	 */
+	// Set the new coordinate 
 	public void setX(int newX) {
 		x = newX;
 	}
 
-	/**
-	 * 设置该格子的纵坐标
-	 * @param newY 新的纵坐标
-	 */
+	// Set the y-axis of the Cell
 	public void setY(int newY) {
 		y = newY;
 	}
 
-	/**
-	 * 获取该Cell的横坐标
-	 * @return 横坐标
-	 */
+	// Get the x-axis of the Cell
 	public int getX() {
 		return x;
 	}
 
-	/**
-	 * 获取该Cell的纵坐标
-	 * @return 纵坐标
-	 */
+	// Get the y-axis of the Cell
 	public int getY() {
 		return y;
 	}
 
-	/**
-	 * 绘图方法
-	 * @param g Graphics引用
-	 */
 	public void paintCell(Graphics g) {
 		switch(color) {
 			case COLOR_CYAN: g.setColor(Color.CYAN);

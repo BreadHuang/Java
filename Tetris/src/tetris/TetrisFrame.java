@@ -4,32 +4,31 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-/**
- * 框架类
- * @author Leslie Leung
- */
 public class TetrisFrame extends JFrame {
-	private TetrisPane tp;	//俄罗斯方块主游戏场景类
-	private JLabel mention;		//游戏的提示信息
+	private TetrisPane tp;
+	private JLabel mention;
 	
 	/**
 	 * 构造方法
 	 */
 	public TetrisFrame() {
-		setSize(550, 600);	//设置窗体大小
+		setSize(550, 600);	//set the window's size
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);	//设置窗体于屏幕中央
-		setTitle("Tetris");		//设置标题为Tetris
-		setResizable(false);		//不允许窗体缩放
-		setLayout(new FlowLayout());	//设置布局管理器
+		setLocationRelativeTo(null);	//set the window's location in the middle of screen
+		setTitle("Tetris");		//set the title
+		setResizable(false);		//Don't allow to resize the window
+		setLayout(new FlowLayout());	//typesetting
 		
-		tp = new TetrisPane();	//新建场景类对象
-		mention = new JLabel("按A键逆时针转，按D顺时针转，按方向键控制向左、向右和向下的运动，按空格键硬下落");
+		tp = new TetrisPane();	//new pane object
+		mention = new JLabel("Press 'A' to do Counterclockwise rotation\n" + 
+							 "Press 'D' to do Counterclockwise rotation\n" + 
+				             "The arrow keys can move the cell\n" +
+							 "Press the space can let the cell fall quickly");
 		
-		add(mention);		//把标签添加到主框架中
-		add(tp);		//把游戏主场景面板添加到主框架中
+		add(mention);	//add the label to the main frame
+		add(tp);		//add the game 
 		
-		/* 注册键盘事件 */
+		//keyboard event
 		addKeyListener(tp.getInnerInstanceOfKeyControl());
 		tp.addKeyListener(tp.getInnerInstanceOfKeyControl());
 		
